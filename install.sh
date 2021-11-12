@@ -11,7 +11,7 @@ lt_log="/tmp/ltech_install_log.txt"
 echo "Installing to $install_dir." >> $lt_log
 
 # Our cwd must be the same as "install.sh".
-if [ ! -f ./data/ltechagent ]
+if [ ! -f ./ltechagent ]
 then
     echo "Installer must be ran in same directory as script."
     exit 1
@@ -116,12 +116,12 @@ fi
 # the files we copy.
 #
 echo "Copying files to install directory." >> $lt_log
-cp ./data/uninstaller.sh "$install_dir"
+cp ./uninstaller.sh "$install_dir"
 rm -f "$install_dir/ltechagent"
-cp ./data/ltechagent "$install_dir"
-cp ./data/libltech.so "$install_dir"
-cp ./data/ltupdate "$install_dir"
-cp ./data/ltechagent_init /etc/init.d/ltechagent
+cp ./ltechagent "$install_dir"
+cp ./libltech.so "$install_dir"
+cp ./ltupdate "$install_dir"
+cp ./ltechagent_init /etc/init.d/ltechagent
 
 echo "Setting permissions." >> $lt_log
 chown -R root:root $install_dir
